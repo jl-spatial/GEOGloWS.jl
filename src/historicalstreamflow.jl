@@ -11,7 +11,7 @@ function historic_simulation(parameters::AbstractDict{Symbol,<:Any})
 
     r = _make_request(baseurl, endpoint, parameters)
 
-    _read_response(r, parameters[:return_format]; with_dates = true)
+    _read_response(r, parameters[:return_format]; with_dates=true)
 
 end
 
@@ -21,7 +21,7 @@ end
 returns simulated streamflow data based on the ERA-5 dataset. A successful
 response will return a time series with date-value pairs.
 """
-function historic_simulation(reach_id::Int; return_format::Symbol = :csv)
+function historic_simulation(reach_id::Int; return_format::Symbol=:csv)
 
     parameters = Dict(:reach_id => reach_id, :return_format => return_format)
 
@@ -34,7 +34,7 @@ end
 returns simulated streamflow data based on the ERA-5 dataset. A successful
 response will return a time series with date-value pairs.
 """
-function historic_simulation(lat::Real, lon::Real; return_format::Symbol = :csv)
+function historic_simulation(lat::Real, lon::Real; return_format::Symbol=:csv)
 
     parameters = Dict(:lat => lat, :lon => lon, :return_format => return_format)
 
@@ -69,8 +69,8 @@ will return key-value pairs for earch return period along with metadata.
 """
 function return_periods(
     reach_id::Int;
-    return_format::Symbol = :csv,
-    forcing::Symbol = :era_5,
+    return_format::Symbol=:csv,
+    forcing::Symbol=:era_5
 )
     parameters = Dict(
         :reach_id => reach_id,
@@ -91,8 +91,8 @@ will return key-value pairs for earch return period along with metadata.
 function return_periods(
     lat::Real,
     lon::Real;
-    return_format::Symbol = :csv,
-    forcing::Symbol = :era_5,
+    return_format::Symbol=:csv,
+    forcing::Symbol=:era_5
 )
     parameters = Dict(
         :lat => lat,
@@ -123,7 +123,7 @@ end
 
 returns the average flow for each day of the year for the Historic Simulation
 """
-function daily_averages(reach_id::Int; return_format::Symbol = :csv)
+function daily_averages(reach_id::Int; return_format::Symbol=:csv)
     parameters = Dict(:reach_id => reach_id, :return_format => return_format)
 
     daily_averages(parameters)
@@ -134,7 +134,7 @@ end
 
 returns the average flow for each day of the year for the Historic Simulation
 """
-function daily_averages(lat::Real, lon::Real; return_format::Symbol = :csv)
+function daily_averages(lat::Real, lon::Real; return_format::Symbol=:csv)
     parameters = Dict(:lat => lat, :lon => lon, :return_format => return_format)
 
     daily_averages(parameters)
@@ -159,7 +159,7 @@ end
 
 returns the average flow for each month of the year for the Historic Simulation
 """
-function monthly_averages(reach_id::Int; return_format::Symbol = :csv)
+function monthly_averages(reach_id::Int; return_format::Symbol=:csv)
     parameters = Dict(:reach_id => reach_id, :return_format => return_format)
 
     monthly_averages(parameters)
@@ -170,7 +170,7 @@ end
 
 returns the average flow for each month of the year for the Historic Simulation
 """
-function monthly_averages(lat::Real, lon::Real; return_format::Symbol = :csv)
+function monthly_averages(lat::Real, lon::Real; return_format::Symbol=:csv)
     parameters = Dict(:lat => lat, :lon => lon, :return_format => return_format)
 
     monthly_averages(parameters)

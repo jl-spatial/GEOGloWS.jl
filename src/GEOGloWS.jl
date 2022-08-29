@@ -84,7 +84,7 @@ Private function for taking api response and reading to proper format
 function _read_response(
     r::HTTP.Messages.Response,
     fmt::Symbol;
-    with_dates::Bool = false,
+    with_dates::Bool=false
 )
     if fmt == :csv
         result = CSV.read(r.body, DataFrame)
@@ -107,5 +107,8 @@ include("geoglowsutils.jl")
 include("forecaststreamflow.jl")
 include("historicalstreamflow.jl")
 
+
+precompile(historic_simulation, (Float64, Float64))
+precompile(forecast_stats, (Float64, Float64))
 
 end # module
