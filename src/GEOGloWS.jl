@@ -11,6 +11,7 @@ using Logging
 using TimeZones
 using DataFrames
 
+include("tools.jl")
 
 const baseurl = "https://geoglows.ecmwf.int/api"
 
@@ -37,8 +38,7 @@ function _make_request(
     parameterstring = parameterstring[1:end-1]
 
     # create a url to get data
-    requesturl = joinpath(baseurl, endpoint, parameterstring)
-
+    requesturl = path_join(baseurl, endpoint, parameterstring)
     # send request
     _make_request(requesturl)
 end
@@ -51,8 +51,7 @@ Private function for submitting get request to particular endpoint
 function _make_request(url::AbstractString, endpoint::AbstractString)
 
     # create a url to get data
-    requesturl = joinpath(baseurl, endpoint)
-
+    requesturl = path_join(baseurl, endpoint)
     # send request
     _make_request(requesturl)
 end

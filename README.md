@@ -14,7 +14,7 @@ julia> using GEOGloWS
 
 ## Quick start
 
-The GEOGloWS services provides critical historical and forecast information on streamflow for every reach across the globe. This quick start example illustrates how to request data for the Brahmaputra River near Guwahati, India.
+The GEOGloWS services provide critical historical and forecast information on streamflow for every reach across the globe. This quick start example illustrates how to request data for the Brahmaputra River near Guwahati, India.
 
 ### Requesting historical data
 
